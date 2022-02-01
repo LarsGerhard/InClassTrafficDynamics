@@ -1,10 +1,10 @@
 # Imports
-from numpy import array, linspace
+from numpy import array, linspace, sqrt
 from matplotlib.pyplot import figure, subplot, show
 from scipy.integrate import odeint
 
 # Initial Variables (In mks units)
-a = 0.3  # Acceleration
+a = 0.7  # Acceleration
 b = 2.  # Deceleration
 delta = 4.  # Acceleration exponent
 L = 5.  # Vehicle length
@@ -12,6 +12,7 @@ xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
 Xblock = 5000  # Barrier position
+vblock = 0  # Velocity of the block
 
 # Initial Conditions
 x0 = 0
@@ -20,7 +21,7 @@ V1 = array([x0, v0])
 
 # set the time interval for solving
 t0 = 0
-tf = 100
+tf = 300
 
 # Form Time array
 tspace = linspace(t0, tf, 400)  # 400 steps for nice plot
@@ -45,10 +46,12 @@ def singleratefunc(t, V):
     # unpack
     x = V[0]  # position
     v = V[1]  # velocity
+    s = (Xblock - L) - x
+    deltav = v - vblock
 
     # Compute acceleration from IDM
 
-    a_idm = a * (1 - (v / vdes) ** delta)
+    a_idm = a * ((1 - (v / vdes) ** delta) - (followdist(v, deltav) / s) ** 2)
 
     # compute derivatives
     dx = v
@@ -57,6 +60,11 @@ def singleratefunc(t, V):
     # pack rate array
     rate = array([dx, dv])
     return rate
+
+
+def followdist(v, deltav):
+    sstar = xmin + v * T + (v * deltav) / (2 * sqrt(a * b))
+    return sstar
 
 
 # Function used to plot everything
