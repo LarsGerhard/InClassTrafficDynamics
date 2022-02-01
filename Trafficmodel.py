@@ -11,17 +11,17 @@ L = 5.  # Vehicle length
 xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
-Xblock = 5000  # Barrier position
-vblock = 0  # Velocity of the block
 
 # Initial Conditions
 x0 = 0
 v0 = 0
+Xblock0 = 5000  # Barrier position
+vblock = vdes / 2  # Velocity of the block
 V1 = array([x0, v0])
 
 # set the time interval for solving
 t0 = 0
-tf = 300
+tf = 1000
 
 # Form Time array
 tspace = linspace(t0, tf, 400)  # 400 steps for nice plot
@@ -46,6 +46,7 @@ def singleratefunc(t, V):
     # unpack
     x = V[0]  # position
     v = V[1]  # velocity
+    Xblock = Xblock0 + vblock * t
     s = (Xblock - L) - x
     deltav = v - vblock
 
