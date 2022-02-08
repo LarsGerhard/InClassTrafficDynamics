@@ -1,5 +1,5 @@
 # Imports
-from numpy import array, linspace, sqrt, pi, concatenate
+from numpy import array, linspace, sqrt, pi, concatenate, zeros
 from numpy.random import choice
 from matplotlib.pyplot import figure, subplot, show
 from scipy.integrate import odeint
@@ -13,12 +13,13 @@ xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
 r = 1000 # Radius of the roundabout
+C = 2 * pi * r # Circumference of the roundabout
 ncars = 50 # Number of cars in our system
 
 # Initial Conditions
-x0 = linspace(0, 2 * pi * r, ncars)
+x0 = linspace(0, C, ncars)
 v0 = choice(28, ncars)
-V1 = concatenate([x0, v0])
+V1 = concatenate((x0, v0))
 
 # set the time interval for solving (in mks)
 t0 = 0
@@ -29,14 +30,13 @@ tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> ti
 
 
 def main():
-    X = odeint(ratefunc, V1, tspace, tfirst=True)
+    M = odeint(ratefunc, V1, tspace, tfirst=True)
 
     # unpack the results. In the output array, variables are columns, times are rows
-    xout = X[:ncar]
-    vout = X[ncar:]
-
+    print(M[9])
+    vout = M[50]
     # For plotting
-    plot(xout, vout)
+
 
 
 
@@ -49,20 +49,28 @@ def ratefunc(t, V):
     # unpack
     x = V[:ncars]  # position
     v = V[ncars:]  # velocity
-    deltav = v - vblock
+    dv = zeros(ncars)
+
 
     # Compute acceleration from IDM
 
-    s = (Xblock - L) - x
+    for i in range(ncars - 1):
 
-    a_idm = a * ((1 - (v / vdes) ** delta) - (followdist(v, deltav) / s) ** 2)
+        if (i+1) > ncars:
+            s = ((x[0] - L) - x[i]) % C
+            deltav = (v[i] - v[0]) % C
 
-    # compute derivatives
+        else:
+            s = ((x[i + 1] - L) - x[i]) % C
+            deltav = (v[i] - v[i + 1]) % C
+
+        # compute derivatives
+        dv[i] = a * ((1 - (v[i] / vdes) ** delta) - (followdist(v[i], deltav) / s) ** 2)
+
     dx = v
-    dv = a_idm
 
     # pack rate array
-    rate = array([dx, dv])
+    rate = concatenate((dx, dv))
     return rate
 
 
