@@ -12,13 +12,13 @@ L = 5.  # Vehicle length
 xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
-r = 1000 # Radius of the roundabout
-C = 2 * pi * r # Circumference of the roundabout
-ncars = 50 # Number of cars in our system
+r = 1000  # Radius of the roundabout
+C = 2 * pi * r  # Circumference of the roundabout
+ncars = 50  # Number of cars in our system
 
 # Initial Conditions
 x0 = linspace(0, C, ncars)
-v0 = choice(28, ncars)
+v0 = zeros(ncars) # choice(28, ncars)
 V1 = concatenate((x0, v0))
 
 # set the time interval for solving (in mks)
@@ -28,18 +28,14 @@ tf = 15 * 60
 # Form Time array
 tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> time to generate number of steps needed
 
-
 def main():
     M = odeint(ratefunc, V1, tspace, tfirst=True)
-
     # unpack the results. In the output array, variables are columns, times are rows
-    print(M[9])
-    vout = M[50]
+    print(len(M))
+    xout = M[:,:ncars]
+    vout = M[:,ncars:]
     # For plotting
-
-
-
-
+    plot(xout,vout,tspace)
 
 # Differential Equation
 def ratefunc(t, V):
@@ -51,18 +47,17 @@ def ratefunc(t, V):
     v = V[ncars:]  # velocity
     dv = zeros(ncars)
 
-
     # Compute acceleration from IDM
 
     for i in range(ncars - 1):
 
-        if (i+1) > ncars:
-            s = ((x[0] - L) - x[i]) % C
-            deltav = (v[i] - v[0]) % C
+        if (i + 1) == ncars:
+            s = x[i] - C - x[0]
+            deltav = (v[i] - v[0])
 
         else:
-            s = ((x[i + 1] - L) - x[i]) % C
-            deltav = (v[i] - v[i + 1]) % C
+            s = ((x[i + 1] - L) - x[i])
+            deltav = (v[i] - v[i + 1])
 
         # compute derivatives
         dv[i] = a * ((1 - (v[i] / vdes) ** delta) - (followdist(v[i], deltav) / s) ** 2)
@@ -80,17 +75,17 @@ def followdist(v, deltav):
 
 
 # Function used to plot everything
-def plot(x1, x2):
+def plot(x1, x2,t):
     fig = figure()
 
     ax1 = subplot()
-    ax1.plot(tspace, x1, 'b')
+    ax1.plot(t, x1, 'b')
     ax1.set_xlabel('time (s)')
     ax1.set_ylabel('distance (m)', color='b')
     ax1.tick_params('y', colors='b')
 
     ax2 = ax1.twinx()
-    ax2.plot(tspace, x2, 'r')
+    ax2.plot(t, x2, 'r')
     ax2.set_ylabel('velocity (m/s)', color='r')
     ax2.tick_params('y', colors='r')
 
