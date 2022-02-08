@@ -1,5 +1,6 @@
 # Imports
-from numpy import array, linspace, sqrt
+from numpy import array, linspace, sqrt, pi, concatenate
+from numpy.random import choice
 from matplotlib.pyplot import figure, subplot, show
 from scipy.integrate import odeint
 
@@ -11,46 +12,48 @@ L = 5.  # Vehicle length
 xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
+r = 1000 # Radius of the roundabout
+ncars = 50 # Number of cars in our system
 
 # Initial Conditions
-x0 = 0
-v0 = 0
-Xblock0 = 5000  # Barrier position
-vblock = vdes / 2  # Velocity of the block
-V1 = array([x0, v0])
+x0 = linspace(0, 2 * pi * r, ncars)
+v0 = choice(28, ncars)
+V1 = concatenate([x0, v0])
 
-# set the time interval for solving
+# set the time interval for solving (in mks)
 t0 = 0
-tf = 1000
+tf = 15 * 60
 
 # Form Time array
-tspace = linspace(t0, tf, 400)  # 400 steps for nice plot
+tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> time to generate number of steps needed
 
 
 def main():
-    X = odeint(singleratefunc, V1, tspace, tfirst=True)
+    X = odeint(ratefunc, V1, tspace, tfirst=True)
 
     # unpack the results. In the output array, variables are columns, times are rows
-    xout = X[:, 0]
-    vout = X[:, 1]
+    xout = X[:ncar]
+    vout = X[ncar:]
 
     # For plotting
     plot(xout, vout)
 
 
+
+
 # Differential Equation
-def singleratefunc(t, V):
+def ratefunc(t, V):
     # RATE_FUNC: IDM Car model
     # Model a car approaching a solid wall
 
     # unpack
-    x = V[0]  # position
-    v = V[1]  # velocity
-    Xblock = Xblock0 + vblock * t
-    s = (Xblock - L) - x
+    x = V[:ncars]  # position
+    v = V[ncars:]  # velocity
     deltav = v - vblock
 
     # Compute acceleration from IDM
+
+    s = (Xblock - L) - x
 
     a_idm = a * ((1 - (v / vdes) ** delta) - (followdist(v, deltav) / s) ** 2)
 
