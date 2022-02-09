@@ -5,7 +5,7 @@ from matplotlib.pyplot import figure, subplot, show
 from scipy.integrate import odeint
 
 # Initial Variables (In mks units)
-a = 0.7  # Acceleration
+a = 0.1  # Acceleration
 b = 2.  # Deceleration
 delta = 4.  # Acceleration exponent
 L = 5.  # Vehicle length
@@ -17,8 +17,8 @@ C = 2 * pi * r  # Circumference of the roundabout
 ncars = 50  # Number of cars in our system
 
 # Initial Conditions
-x0 = linspace(0, C, ncars)
-v0 = zeros(ncars) # choice(28, ncars)
+x0 = linspace(0, C - 50, ncars)
+v0 = choice(28, ncars) # choice(28, ncars)
 V1 = concatenate((x0, v0))
 
 # set the time interval for solving (in mks)
@@ -29,9 +29,9 @@ tf = 15 * 60
 tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> time to generate number of steps needed
 
 def main():
+
     M = odeint(ratefunc, V1, tspace, tfirst=True)
     # unpack the results. In the output array, variables are columns, times are rows
-    print(len(M))
     xout = M[:,:ncars]
     vout = M[:,ncars:]
     # For plotting
@@ -49,10 +49,9 @@ def ratefunc(t, V):
 
     # Compute acceleration from IDM
 
-    for i in range(ncars - 1):
-
+    for i in range(ncars):
         if (i + 1) == ncars:
-            s = x[i] - C - x[0]
+            s = (x[0] - L) - (x[i] - C)
             deltav = (v[i] - v[0])
 
         else:
@@ -79,13 +78,13 @@ def plot(x1, x2,t):
     fig = figure()
 
     ax1 = subplot()
-    ax1.plot(t, x1, 'b')
+    ax1.plot(t, x1[:,10], 'b')
     ax1.set_xlabel('time (s)')
     ax1.set_ylabel('distance (m)', color='b')
     ax1.tick_params('y', colors='b')
 
     ax2 = ax1.twinx()
-    ax2.plot(t, x2, 'r')
+    ax2.plot(t, x2[:,15], 'r')
     ax2.set_ylabel('velocity (m/s)', color='r')
     ax2.tick_params('y', colors='r')
 
