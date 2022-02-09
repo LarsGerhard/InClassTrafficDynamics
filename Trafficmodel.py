@@ -85,12 +85,28 @@ def plot(x1, x2, t):
     ax1.tick_params('y', colors='b')
 
     ax2 = ax1.twinx()
-    ax2.plot(t, x2[:, 15], 'r')
+    ax2.plot(t, x2[:, 10], 'r')
     ax2.set_ylabel('velocity (m/s)', color='r')
     ax2.tick_params('y', colors='r')
 
     fig.tight_layout()
 
+    show()
+
+    fig = figure()
+
+    ax1 = subplot()
+    ax1.plot(t, x1, 'b')
+    ax1.set_xlabel('time (s)')
+    ax1.set_ylabel('distance (m)', color='b')
+    ax1.tick_params('y', colors='b')
+
+    ax2 = ax1.twinx()
+    ax2.plot(t, x2, 'r')
+    ax2.set_ylabel('velocity (m/s)', color='r')
+    ax2.tick_params('y', colors='r')
+
+    fig.tight_layout()
     show()
 
 
