@@ -1,5 +1,5 @@
 # Imports
-from numpy import array, linspace, sqrt, pi, concatenate, zeros
+from numpy import linspace, sqrt, pi, concatenate, zeros
 from numpy.random import choice
 from matplotlib.pyplot import figure, subplot, show
 from scipy.integrate import odeint
@@ -18,7 +18,7 @@ ncars = 50  # Number of cars in our system
 
 # Initial Conditions
 x0 = linspace(0, C - 50, ncars)
-v0 = choice(28, ncars) # choice(28, ncars)
+v0 = choice(28, ncars)  # choice(28, ncars)
 V1 = concatenate((x0, v0))
 
 # set the time interval for solving (in mks)
@@ -28,14 +28,15 @@ tf = 15 * 60
 # Form Time array
 tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> time to generate number of steps needed
 
-def main():
 
+def main():
     M = odeint(ratefunc, V1, tspace, tfirst=True)
     # unpack the results. In the output array, variables are columns, times are rows
-    xout = M[:,:ncars]
-    vout = M[:,ncars:]
+    xout = M[:, :ncars]
+    vout = M[:, ncars:]
     # For plotting
-    plot(xout,vout,tspace)
+    plot(xout, vout, tspace)
+
 
 # Differential Equation
 def ratefunc(t, V):
@@ -74,17 +75,17 @@ def followdist(v, deltav):
 
 
 # Function used to plot everything
-def plot(x1, x2,t):
+def plot(x1, x2, t):
     fig = figure()
 
     ax1 = subplot()
-    ax1.plot(t, x1[:,10], 'b')
+    ax1.plot(t, x1[:, 10], 'b')
     ax1.set_xlabel('time (s)')
     ax1.set_ylabel('distance (m)', color='b')
     ax1.tick_params('y', colors='b')
 
     ax2 = ax1.twinx()
-    ax2.plot(t, x2[:,15], 'r')
+    ax2.plot(t, x2[:, 15], 'r')
     ax2.set_ylabel('velocity (m/s)', color='r')
     ax2.tick_params('y', colors='r')
 
