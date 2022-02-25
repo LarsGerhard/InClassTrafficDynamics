@@ -7,23 +7,24 @@ from scipy.integrate import odeint
 # Initial Variables (In mks units)
 a = 0.1  # Acceleration
 b = 2.  # Deceleration
-delta = 4.  # Acceleration exponent
+delta = 2.  # Acceleration exponent
 L = 5.  # Vehicle length
 xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
-r = 1000  # Radius of the roundabout
+r = 100  # Radius of the roundabout
 C = 2 * pi * r  # Circumference of the roundabout
-ncars = 50  # Number of cars in our system
+ncars = 10  # Number of cars in our system
 
 # Initial Conditions
 x0 = linspace(0, C - 50, ncars)
-v0 = choice(28, ncars)  # choice(28, ncars)
+v0 = zeros(ncars)
+v0[0] = 2
 V1 = concatenate((x0, v0))
 
 # set the time interval for solving (in mks)
 t0 = 0
-tf = 15 * 60
+tf = 35 * 60
 
 # Form Time array
 tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> time to generate number of steps needed
@@ -76,22 +77,6 @@ def followdist(v, deltav):
 
 # Function used to plot everything
 def plot(x1, x2, t):
-    fig = figure()
-
-    ax1 = subplot()
-    ax1.plot(t, x1[:, 10], 'b')
-    ax1.set_xlabel('time (s)')
-    ax1.set_ylabel('distance (m)', color='b')
-    ax1.tick_params('y', colors='b')
-
-    ax2 = ax1.twinx()
-    ax2.plot(t, x2[:, 10], 'r')
-    ax2.set_ylabel('velocity (m/s)', color='r')
-    ax2.tick_params('y', colors='r')
-
-    fig.tight_layout()
-
-    show()
 
     fig = figure()
 
