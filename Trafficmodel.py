@@ -5,20 +5,35 @@ from matplotlib.pyplot import figure, subplot, show
 from scipy.integrate import odeint
 
 # Initial Variables (In mks units)
-a = 0.1  # Acceleration
-b = 2.  # Deceleration
+a = 0.5  # Acceleration
+b = 3  # Deceleration
 delta = 2.  # Acceleration exponent
-L = 5.  # Vehicle length
+LC = 5.  # Vehicle length
+LB = 10.
 xmin = 2.  # Minimum gap
 T = 1.8  # Time headway
 vdes = 28  # Desired speed
 r = 100  # Radius of the roundabout
 C = 2 * pi * r  # Circumference of the roundabout
 ncars = 10  # Number of cars in our system
+nbusses = 0 # Number of busses in our system
+nvehicles = ncars + nbusses
 
 # Initial Conditions
-x0 = linspace(0, C - 50, ncars)
-v0 = zeros(ncars)
+
+L = zeros(nvehicles)
+
+count = 0
+
+for i in range(nvehicles):
+    if (i % int(nvehicles / ncars) == 0) and (count < nbusses):
+        L[i] = LB
+        count += 1
+    else:
+        L[i] = LC
+
+x0 = linspace(0, C - 50, nvehicles)
+v0 = zeros(nvehicles)
 v0[0] = 2
 V1 = concatenate((x0, v0))
 
@@ -33,8 +48,8 @@ tspace = linspace(t0, tf, int(4. * tf / 10.))  # Uses given ratio of steps -> ti
 def main():
     M = odeint(ratefunc, V1, tspace, tfirst=True)
     # unpack the results. In the output array, variables are columns, times are rows
-    xout = M[:, :ncars]
-    vout = M[:, ncars:]
+    xout = M[:, :nvehicles]
+    vout = M[:, nvehicles:]
     # For plotting
     plot(xout, vout, tspace)
 
@@ -45,19 +60,19 @@ def ratefunc(t, V):
     # Model a car approaching a solid wall
 
     # unpack
-    x = V[:ncars]  # position
-    v = V[ncars:]  # velocity
-    dv = zeros(ncars)
+    x = V[:nvehicles]  # position
+    v = V[nvehicles:]  # velocity
+    dv = zeros(nvehicles)
 
     # Compute acceleration from IDM
 
-    for i in range(ncars):
-        if (i + 1) == ncars:
-            s = (x[0] - L) - (x[i] - C)
+    for i in range(nvehicles):
+        if (i + 1) == nvehicles:
+            s = (x[0] - L[i]) - (x[i] - C)
             deltav = (v[i] - v[0])
 
         else:
-            s = ((x[i + 1] - L) - x[i])
+            s = ((x[i + 1] - L[i]) - x[i])
             deltav = (v[i] - v[i + 1])
 
         # compute derivatives

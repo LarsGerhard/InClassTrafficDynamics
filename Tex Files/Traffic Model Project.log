@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  24 FEB 2022 20:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  13 MAR 2022 01:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -246,7 +246,24 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \colbreak@box=\box97
 \mc@col@check@num=\count286
 )
-(C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+(C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2022/02/28 v3.6a Customizing captions (AR)
+
+(C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2022/02/28 v2.3a caption3 kernel (AR)
+\caption@tempdima=\dimen182
+\captionmargin=\dimen183
+\caption@leftmargin=\dimen184
+\caption@rightmargin=\dimen185
+\caption@width=\dimen186
+\caption@indent=\dimen187
+\caption@parindent=\dimen188
+\caption@hangindent=\dimen189
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count287
+\c@continuedfloat=\count288
+) (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks22
 \inpenc@posthook=\toks23
@@ -259,57 +276,70 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count287
-\Gm@cntv=\count288
-\c@Gm@tempcnt=\count289
-\Gm@bindingoffset=\dimen182
-\Gm@wd@mp=\dimen183
-\Gm@odd@mp=\dimen184
-\Gm@even@mp=\dimen185
-\Gm@layoutwidth=\dimen186
-\Gm@layoutheight=\dimen187
-\Gm@layouthoffset=\dimen188
-\Gm@layoutvoffset=\dimen189
+\Gm@cnth=\count289
+\Gm@cntv=\count290
+\c@Gm@tempcnt=\count291
+\Gm@bindingoffset=\dimen190
+\Gm@wd@mp=\dimen191
+\Gm@odd@mp=\dimen192
+\Gm@even@mp=\dimen193
+\Gm@layoutwidth=\dimen194
+\Gm@layoutheight=\dimen195
+\Gm@layouthoffset=\dimen196
+\Gm@layoutvoffset=\dimen197
 \Gm@dimlist=\toks24
 
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg
 ))
+Traffic Model Project.tex:14: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   !
+l.14 }
+      
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
+\l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box98
 ) (Traffic Model Project.aux)
 \openout1 = `"Traffic Model Project.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count291
-\scratchdimen=\dimen190
+\scratchcounter=\count293
+\scratchdimen=\dimen198
 \scratchbox=\box99
-\nofMPsegments=\count292
-\nofMParguments=\count293
+\nofMPsegments=\count294
+\nofMParguments=\count295
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count294
-\MPscratchDim=\dimen191
-\MPnumerator=\count295
-\makeMPintoPDFobject=\count296
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen199
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
 \everyMPtoPDFconversion=\toks26
 )
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
@@ -322,6 +352,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 .cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -356,12 +389,12 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
 
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
 
 
 (C:\Users\Thaseus\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -370,18 +403,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Figure_1.png, id=1, 462.528pt x 346.896pt>
 File: Figure_1.png Graphic file (type png)
 <use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 38.
+Package pdftex.def Info: Figure_1.png  used on input line 45.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
 
-Traffic Model Project.tex:49: LaTeX Error: Something's wrong--perhaps a missing
+Traffic Model Project.tex:57: LaTeX Error: Something's wrong--perhaps a missing
  \item.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.49 	\end{center}
+l.57 	\end{center}
                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -389,30 +422,74 @@ If that doesn't work, type  X <return>  to quit.
 <Figure_2.png, id=3, 462.528pt x 346.896pt>
 File: Figure_2.png Graphic file (type png)
 <use Figure_2.png>
-Package pdftex.def Info: Figure_2.png  used on input line 53.
+Package pdftex.def Info: Figure_2.png  used on input line 62.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+<Figure_3.png, id=4, 462.528pt x 346.896pt>
+File: Figure_3.png Graphic file (type png)
+<use Figure_3.png>
+Package pdftex.def Info: Figure_3.png  used on input line 68.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+<Figure_4.png, id=5, 462.528pt x 346.896pt>
+File: Figure_4.png Graphic file (type png)
+<use Figure_4.png>
+Package pdftex.def Info: Figure_4.png  used on input line 78.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 [1
 
 {C:/Users/Thaseus/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Figure_1
-.png> <./Figure_2.png>] (Traffic Model Project.aux) ) 
+.png> <./Figure_2.png> <./Figure_3.png>]
+<Figure_5.png, id=19, 462.528pt x 346.896pt>
+File: Figure_5.png Graphic file (type png)
+<use Figure_5.png>
+Package pdftex.def Info: Figure_5.png  used on input line 86.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+<Figure_6.png, id=20, 462.528pt x 346.896pt>
+File: Figure_6.png Graphic file (type png)
+<use Figure_6.png>
+Package pdftex.def Info: Figure_6.png  used on input line 96.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+<Figure_7.png, id=21, 462.528pt x 346.896pt>
+File: Figure_7.png Graphic file (type png)
+<use Figure_7.png>
+Package pdftex.def Info: Figure_7.png  used on input line 102.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+<Figure_10.png, id=22, 462.528pt x 346.896pt>
+File: Figure_10.png Graphic file (type png)
+<use Figure_10.png>
+Package pdftex.def Info: Figure_10.png  used on input line 110.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [2 <./Figure_4.png> <./Figure_5.png> <./Figure_6.png> <./Figure_7.png>]
+<Figure_8.png, id=30, 462.528pt x 346.896pt>
+File: Figure_8.png Graphic file (type png)
+<use Figure_8.png>
+Package pdftex.def Info: Figure_8.png  used on input line 121.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+<Figure_9.png, id=31, 462.528pt x 346.896pt>
+File: Figure_9.png Graphic file (type png)
+<use Figure_9.png>
+Package pdftex.def Info: Figure_9.png  used on input line 129.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [3 <./Figure_10.png> <./Figure_8.png> <./Figure_9.png>] (Traffic Model Project
+.aux) ) 
 Here is how much of TeX's memory you used:
- 3978 strings out of 478659
- 64246 string characters out of 2844972
- 371973 words of memory out of 3000000
- 22044 multiletter control sequences out of 15000+600000
- 409586 words of font info for 50 fonts, out of 8000000 for 9000
+ 5369 strings out of 478659
+ 91118 string characters out of 2844972
+ 401365 words of memory out of 3000000
+ 23418 multiletter control sequences out of 15000+600000
+ 411593 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,62p,254b,254s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/Thaseus/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Thase
-us/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
-sers/Thaseus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Users/Thaseus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr17.pfb>
+ 55i,6n,63p,366b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/Thaseus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmbx10.pfb><C:/Users/Thaseus/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb><C:/Users/Thaseus/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Thaseus/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Thaseus/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Thaseus/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 Output written on "C:/Users\Thaseus\PycharmProjects\InClassTrafficDynamics\Traf
-fic Model Project.pdf" (1 page, 185927 bytes).
+fic Model Project.pdf" (3 pages, 444446 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
